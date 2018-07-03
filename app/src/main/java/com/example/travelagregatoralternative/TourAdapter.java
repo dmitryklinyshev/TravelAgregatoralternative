@@ -20,6 +20,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
 
     public TourAdapter(ArrayList<Tour> tourList, ITourActions listener) {
         this.tourList = tourList;
+        this.tourActionsListener = listener;
     }
 
     @NonNull

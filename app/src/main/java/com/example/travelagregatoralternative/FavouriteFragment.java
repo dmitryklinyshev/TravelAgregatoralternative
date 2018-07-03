@@ -58,8 +58,5 @@ public class FavouriteFragment extends Fragment implements Receiver {
 
     }
 
-    @Override
-    public int onTourClicked() {
-        return 0;
-    }
+
 }

@@ -77,9 +77,7 @@ class JsonResultClient extends AsyncTask<Void, Void, Void> {
         this.receiver = receiver;
     }
 
-    public JsonResultClient(Receiver receiver, String url) {
-        this.o = new OkHttpClient();
-        this.receiver = receiver;
+    public void setUrl(String url) {
         this.url = url;
     }
 

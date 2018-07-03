@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                         selectedFragment = FavouriteFragment.newInstance();
                         break;
                     case R.id.main:
-                        selectedFragment = MainFragment.newInstance();
+                        selectedFragment = RecyclerFragment.newInstance();
                         break;
                     case R.id.dream:
                         selectedFragment = DreamFragment.newInstance();

@@ -7,5 +7,4 @@ public interface Receiver {
     void OnReceiveData(ArrayList<Tour> a);
     void OnReceiveError(String s);
 
-    int onTourClicked();
 }
