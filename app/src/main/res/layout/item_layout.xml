@@ -4,33 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:layout_marginBottom="4dp">
+    android:layout_marginBottom="@dimen/cardview_default_elevation">
 
 
-
-    <RelativeLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/CardImageView"
-            android:layout_width="161dp"
-            android:layout_height="108dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             app:srcCompat="@drawable/small"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp"
             tools:padding="0dp" />
 
         <TextView
-            android:id="@+id/CardTextView"
+            android:id="@+id/CardHotelView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/CardRatingBar"
-            android:layout_below="@+id/CardStarView"
-            android:layout_marginStart="11dp"
-            android:layout_marginTop="24dp"
+            android:layout_below="@+id/CardStarImageButton"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:text="TextView"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small"
+            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/CardImageView"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,49 +39,58 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/CardRatingBar"
-            android:layout_alignTop="@+id/imageButton"
+            android:layout_alignTop="@+id/CardStarImageButton"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="sans-serif-condensed"
             android:text="TextView"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:textColor="@android:color/darker_gray"
             android:textSize="14sp"
             android:typeface="normal"
-            app:layout_constraintStart_toEndOf="@+id/CardImageView"
-            app:layout_constraintTop_toBottomOf="@id/CardRatingBar" />
+            app:layout_constraintStart_toEndOf="@+id/CardRatingBar"
+            app:layout_constraintTop_toBottomOf="@+id/CardDateView" />
 
         <RatingBar
             android:id="@+id/CardRatingBar"
             style="@style/Widget.AppCompat.RatingBar.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/CardStarView"
-            android:layout_marginStart="11dp"
+            android:layout_below="@+id/CardStarImageButton"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
             android:layout_toEndOf="@+id/CardImageView"
             app:layout_constraintStart_toEndOf="@+id/CardImageView"
-            app:layout_constraintTop_toBottomOf="@+id/CardTextView" />
-
-
-        <ImageButton
-            android:id="@+id/CardStarView"
-            style="@style/Widget.AppCompat.ImageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="#ffffffff"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-           />
+            app:layout_constraintTop_toBottomOf="@+id/CardDateView" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/CardStarImageButton"
             style="@android:style/Widget.DeviceDefault.Light.ImageButton"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignBottom="@+id/CardImageView"
             android:layout_alignParentEnd="true"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
             android:background="@color/cardview_shadow_end_color"
-            app:srcCompat="@android:drawable/btn_star" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_star_black_24dp" />
 
+        <TextView
+            android:id="@+id/CardDateView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="TextView"
+            android:textColor="@android:color/darker_gray"
+            app:layout_constraintStart_toEndOf="@+id/CardImageView"
+            app:layout_constraintTop_toBottomOf="@+id/CardHotelView" />
 
-    </RelativeLayout>
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.v7.widget.CardView>

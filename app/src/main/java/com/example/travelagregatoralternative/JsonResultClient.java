@@ -106,14 +106,17 @@ class JsonResultClient extends AsyncTask<Void, Void, Void> {
                     JSONArray h = new JSONArray(tour.get(6).toString());
                     JSONObject p = new JSONObject(tour.get(10).toString());
 
-                    String hotelRow = h.get(1).toString();
+                    String dateFrom = tour.getString(0);
+                    String dateTo = tour.getString(4);
+
+                    String hotelRow = h.getString(1);
                     String hotel = hotelRow.substring(0, hotelRow.length() - 4);
                     int stars = Integer.parseInt(hotelRow.substring(hotelRow.length() - 3, hotelRow.length() - 2));
                     int price = Integer.parseInt(p.get("total").toString());
-                    String image = h.get(2).toString();
+                    String image = h.getString(2);
 
 
-                    result.add(new Tour(hotel, image, price, stars));
+                    result.add(new Tour(hotel, image, price, stars, dateFrom, dateTo));
                 }
 
 

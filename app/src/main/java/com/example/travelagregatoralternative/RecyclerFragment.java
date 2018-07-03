@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class RecyclerFragment extends Fragment implements Receiver, ITourActions {
     private ProgressBar mProgressBar;
-
+    JsonResultClient jsonResultClient;
 
     public static RecyclerFragment newInstance() {
         RecyclerFragment mFragment = new RecyclerFragment();
@@ -30,7 +30,7 @@ public class RecyclerFragment extends Fragment implements Receiver, ITourActions
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        jsonResultClient = new JsonResultClient(this);
 
     }
 
@@ -39,7 +39,7 @@ public class RecyclerFragment extends Fragment implements Receiver, ITourActions
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         final View view = inflater.inflate(R.layout.recycler_layout, container, false);
-
+        jsonResultClient.execute();
         mProgressBar = view.findViewById(R.id.progress_bar);
         mProgressBar.setVisibility(View.VISIBLE);
 //
@@ -58,11 +58,12 @@ public class RecyclerFragment extends Fragment implements Receiver, ITourActions
         return view;
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        new JsonResultClient(this).execute();
 
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        jsonResultClient.cancel(true);
     }
 
     @Override

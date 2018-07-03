@@ -2,23 +2,59 @@ package com.example.travelagregatoralternative;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 public class Tour implements Parcelable {
     private String hotel;
     private String image;
     private int price;
     private int stars;
+    private String dateFrom;
+    private String dateTo;
 
 
-    public Tour(String hotel, String image, int price, int stars) {
+    public Tour(String hotel, String image, int price, int stars, String dateFrom, String dateTo) {
         this.hotel = hotel;
         this.image = image;
         this.price = price;
         this.stars = stars;
+        this.dateFrom = dateFrom;
+        this.dateTo = dateTo;
     }
 
-    public Tour() {
+    private Tour(Parcel parcel) {
+        this.hotel = parcel.readString();
+        this.image = parcel.readString();
+        this.price = parcel.readInt();
+        this.stars = parcel.readInt();
+        this.dateFrom = parcel.readString();
+        this.dateTo = parcel.readString();
+    }
 
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(hotel);
+        dest.writeString(image);
+        dest.writeInt(price);
+        dest.writeInt(stars);
+        dest.writeString(dateFrom);
+        dest.writeString(dateTo);
+    }
+
+    public String getDateFrom() {
+        return dateFrom;
+    }
+
+    public void setDateFrom(String dateFrom) {
+        this.dateFrom = dateFrom;
+    }
+
+    public String getDateTo() {
+        return dateTo;
+    }
+
+    public void setDateTo(String dateTo) {
+        this.dateTo = dateTo;
     }
 
     public void setHotel(String hotel) {
@@ -59,16 +95,12 @@ public class Tour implements Parcelable {
         return 0;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-
-    }
 
     public static final Parcelable.Creator<Tour> CREATOR = new Parcelable.Creator<Tour>() {
 
         @Override
         public Tour createFromParcel(Parcel source) {
-         return new Tour();
+         return new Tour(source);
         }
 
         @Override
