@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.example.travelagregatoralternative"
-        minSdkVersion 23
+        minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -20,7 +20,8 @@ android {
 
 dependencies {
 
-        compile 'com.github.dmytrodanylyk.circular-progress-button:library:1.1.3'
+    implementation 'com.android.support:support-v4:27.1.1'
+    compile 'com.github.dmytrodanylyk.circular-progress-button:library:1.1.3'
     compile 'com.github.ishan1604:tsview:1.0.0'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
