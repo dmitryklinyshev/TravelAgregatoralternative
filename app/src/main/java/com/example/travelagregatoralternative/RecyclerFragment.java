@@ -18,7 +18,7 @@ import android.support.v7.widget.Toolbar;
 import java.util.ArrayList;
 
 
-public class RecyclerFragment extends Fragment implements Receiver, ITourActions {
+public class RecyclerFragment extends Fragment implements Receiver {
 
     private String defaultUrl = "http://search.tez-tour.com/tariffsearch/getResult" +
             "?accommodationId=1" +
@@ -145,8 +145,8 @@ public class RecyclerFragment extends Fragment implements Receiver, ITourActions
 
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onDestroyView() {
+        super.onDestroyView();
         jsonResultClient.cancel(true);
     }
 
@@ -155,7 +155,7 @@ public class RecyclerFragment extends Fragment implements Receiver, ITourActions
 
         RecyclerView rv = (RecyclerView) getView().findViewById(R.id.recycler_view);
         rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        rv.setAdapter(new TourAdapter(a, this));
+        rv.setAdapter(new TourAdapter(a, (MainActivity) getActivity()));
 
         mProgressBar.setVisibility(ProgressBar.INVISIBLE);
 
@@ -170,10 +170,6 @@ public class RecyclerFragment extends Fragment implements Receiver, ITourActions
     }
 
 
-    @Override
-    public void onTourClicked(int id) {
-
-    }
 }
 
 

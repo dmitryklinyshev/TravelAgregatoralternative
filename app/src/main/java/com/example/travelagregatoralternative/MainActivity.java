@@ -24,8 +24,9 @@ import com.example.travelagregatoralternative.TourAdapter;
 import java.util.ArrayList;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ITourActions {
     private final int FILTER_CODE = 0;
+    private ArrayList<Tour> tourArrayList;
     private String url = "http://search.tez-tour.com/tariffsearch/getResult" +
             "?accommodationId=1" +
             "&after=02.08.2018" +
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        tourArrayList = new ArrayList<Tour>();
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
 
@@ -132,6 +133,15 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
         }
+    }
+
+    public ArrayList<Tour> getTourArrayList() {
+        return tourArrayList;
+    }
+
+    @Override
+    public void onTourClicked(Tour tour) {
+        tourArrayList.add(tour);
     }
 }
 

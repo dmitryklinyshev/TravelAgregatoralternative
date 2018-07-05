@@ -5,5 +5,5 @@ package com.example.travelagregatoralternative;
  */
 
 public interface ITourActions {
-    void onTourClicked(int id);
+    void onTourClicked(Tour tour);
 }

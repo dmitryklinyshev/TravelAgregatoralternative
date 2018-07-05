@@ -14,16 +14,13 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
+public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHolder> {
 
-    private ITourActions tourActionsListener;
-    private ArrayList<Tour> tourList = null;
+    private ArrayList<Tour> tourList;
 
-    public TourAdapter(ArrayList<Tour> tourList, ITourActions listener) {
+    public FavoriteAdapter(ArrayList<Tour> tourList) {
         this.tourList = tourList;
-        this.tourActionsListener = listener;
     }
-
 
     @NonNull
     @Override
@@ -76,12 +73,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
             stars.setNumStars(tour.getStars());
             price.setText(tour.getPrice() + "\u20BD");
             date.setText(tour.getDateFrom() + " - " + tour.getDateTo());
-            star.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    tourActionsListener.onTourClicked(tour);
-                }
-            });
+            star.setVisibility(View.INVISIBLE);
         }
     }
 

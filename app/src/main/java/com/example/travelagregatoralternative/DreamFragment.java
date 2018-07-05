@@ -4,6 +4,7 @@ package com.example.travelagregatoralternative;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,7 @@ public class DreamFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.dream_fragment, container, false);
 
+        ((Toolbar) rootView.findViewById(R.id.toolbar)).setTitle("Хочу быть там");
         initViews(rootView);
         initSpinner();
 
