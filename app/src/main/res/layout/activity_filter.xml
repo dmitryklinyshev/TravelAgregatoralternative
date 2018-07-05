@@ -23,67 +23,135 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:layout_margin="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Стоимость"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editText5"
+                    android:id="@+id/priceFrom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:contentDescription="от"
                     android:ems="10"
+                    android:hint="0"
                     android:inputType="number" />
 
                 <EditText
-                    android:id="@+id/editText4"
+                    android:id="@+id/priceTo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:contentDescription="до"
                     android:ems="10"
+                    android:hint="4500000"
                     android:inputType="number" />
             </LinearLayout>
 
-            <Spinner
-                android:id="@+id/spinner2"
+            <TextView
+                android:id="@+id/textView11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:spinnerMode="dialog" />
+                android:layout_marginTop="32dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Страна назначения"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
-            <LinearLayout
+            <EditText
+                android:id="@+id/country"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Австрия" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Дата отправления"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                tools:layout_marginLeft="16dp">
 
-                <EditText
-                    android:id="@+id/editText7"
+                <TextView
+                    android:id="@+id/pickedDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="date" />
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="TextView"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <EditText
-                    android:id="@+id/editText6"
+                <ImageButton
+                    android:id="@+id/calendar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="date" />
-            </LinearLayout>
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/cardview_shadow_end_color"
+                    android:onClick="setFromDate"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/pickedDate"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_calendar_blue_24dp" />
+            </android.support.constraint.ConstraintLayout>
 
-            <Button
-                android:id="@+id/button"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            <TextView
+                android:id="@+id/textView15"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="onApply"
-                android:text="Применить"
-                android:textColor="@color/colorPrimary" />
+                android:layout_marginTop="32dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Количество ночей"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/nightCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="250dp"
+                android:ems="10"
+                android:inputType="number" />
+
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/button"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onApply"
+        android:text="Применить"
+        android:textColor="@color/colorPrimary" />
 
 </LinearLayout>

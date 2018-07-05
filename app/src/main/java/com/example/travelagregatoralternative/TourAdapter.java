@@ -68,7 +68,15 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
 
         public void bindItemToView(Tour tour) {
             hotel.setText(tour.getHotel());
-            Picasso.get().load(tour.getImage()).resize(100, 100).into(image);
+            if (tour.getImage().isEmpty()) {
+                Picasso.get().load("https://s.tez-tour.com/h…0/express_1735_small.jpg")
+                        .resize(100, 100)
+                        .into(image);
+            } else {
+                Picasso.get().load(tour.getImage())
+                        .resize(100, 100)
+                        .into(image);
+            }
             stars.setNumStars(tour.getStars());
             price.setText(tour.getPrice() + "\u20BD");
             date.setText(tour.getDateFrom() + " - " + tour.getDateTo());

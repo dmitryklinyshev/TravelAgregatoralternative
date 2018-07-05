@@ -111,7 +111,7 @@ class JsonResultClient extends AsyncTask<Void, Void, Void> {
 
                     String hotelRow = h.getString(1);
                     String hotel = hotelRow.substring(0, hotelRow.length() - 4);
-                    int stars = Integer.parseInt(hotelRow.substring(hotelRow.length() - 3, hotelRow.length() - 2));
+                    int stars = Integer.parseInt(hotelRow.substring(hotelRow.length() - 4, hotelRow.length() - 2).replaceAll("\\D+",""));
                     int price = Integer.parseInt(p.get("total").toString());
                     String image = h.getString(2);
 
@@ -133,7 +133,9 @@ class JsonResultClient extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        if (result == null || result.size() == 0) {
+        if (result == null
+//                || result.size() == 0
+                ) {
             receiver.OnReceiveError(s);
 
         } else {
